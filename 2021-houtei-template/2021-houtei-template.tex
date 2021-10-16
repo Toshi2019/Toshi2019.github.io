@@ -1,0 +1,452 @@
+%================================================
+%    この tex ファイルは2021年度立命館大学数学研究会機関紙
+%    『方程』の記事作成テンプレートです. 
+%================================================
+
+% -----------------------
+% preamble
+% -----------------------
+% ここから本文 (\begin{document}) までの
+% ソースコードに変更を加えた場合は
+% 編集者まで連絡してください. 
+% Don't change preamble code yourself. 
+% If you add something
+% (usepackage, newtheorem, newcommand, renewcommand),
+% please tell it 
+% to the editor of institutional paper of RUMS.
+
+% ------------------------
+% documentclass
+% ------------------------
+\documentclass[11pt, a4paper, dvipdfmx]{jsarticle}
+
+% ------------------------
+% usepackage
+% ------------------------
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[psamsfonts]{amssymb}
+\usepackage{amsthm}
+\usepackage{ascmac}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{fancybox}
+\usepackage[stable]{footmisc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{otf}
+\usepackage{pifont}
+\usepackage{proof}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[all]{xy}
+
+\usetikzlibrary{cd}
+
+
+
+% ================================
+% パッケージを追加する場合のスペース 
+
+%=================================
+
+
+% --------------------------
+% theoremstyle
+% --------------------------
+\theoremstyle{definition}
+
+% --------------------------
+% newtheoem
+% --------------------------
+
+% 日本語で定理, 命題, 証明などを番号付きで用いるためのコマンドです. 
+% If you want to use theorem environment in Japanece, 
+% you can use these code. 
+% Attention!
+% All theorem enivironment numbers depend on 
+% only section numbers.
+\newtheorem{Axiom}{公理}[section]
+\newtheorem{Definition}[Axiom]{定義}
+\newtheorem{Theorem}[Axiom]{定理}
+\newtheorem{Proposition}[Axiom]{命題}
+\newtheorem{Lemma}[Axiom]{補題}
+\newtheorem{Corollary}[Axiom]{系}
+\newtheorem{Example}[Axiom]{例}
+\newtheorem{Claim}[Axiom]{主張}
+\newtheorem{Property}[Axiom]{性質}
+\newtheorem{Attention}[Axiom]{注意}
+\newtheorem{Question}[Axiom]{問}
+\newtheorem{Problem}[Axiom]{問題}
+\newtheorem{Consideration}[Axiom]{考察}
+\newtheorem{Alert}[Axiom]{警告}
+\newtheorem{Fact}[Axiom]{事実}
+
+
+% 日本語で定理, 命題, 証明などを番号なしで用いるためのコマンドです. 
+% If you want to use theorem environment with no number in Japanese, You can use these code.
+\newtheorem*{Axiom*}{公理}
+\newtheorem*{Definition*}{定義}
+\newtheorem*{Theorem*}{定理}
+\newtheorem*{Proposition*}{命題}
+\newtheorem*{Lemma*}{補題}
+\newtheorem*{Example*}{例}
+\newtheorem*{Corollary*}{系}
+\newtheorem*{Claim*}{主張}
+\newtheorem*{Property*}{性質}
+\newtheorem*{Attention*}{注意}
+\newtheorem*{Question*}{問}
+\newtheorem*{Problem*}{問題}
+\newtheorem*{Consideration*}{考察}
+\newtheorem*{Alert*}{警告}
+\newtheorem{Fact*}{事実}
+
+
+% 英語で定理, 命題, 証明などを番号付きで用いるためのコマンドです. 
+%　If you want to use theorem environment in English, You can use these code.
+%all theorem enivironment number depend on only section number.
+\newtheorem{Axiom+}{Axiom}[section]
+\newtheorem{Definition+}[Axiom+]{Definition}
+\newtheorem{Theorem+}[Axiom+]{Theorem}
+\newtheorem{Proposition+}[Axiom+]{Proposition}
+\newtheorem{Lemma+}[Axiom+]{Lemma}
+\newtheorem{Example+}[Axiom+]{Example}
+\newtheorem{Corollary+}[Axiom+]{Corollary}
+\newtheorem{Claim+}[Axiom+]{Claim}
+\newtheorem{Property+}[Axiom+]{Property}
+\newtheorem{Attention+}[Axiom+]{Attention}
+\newtheorem{Question+}[Axiom+]{Question}
+\newtheorem{Problem+}[Axiom+]{Problem}
+\newtheorem{Consideration+}[Axiom+]{Consideration}
+\newtheorem{Alert+}{Alert}
+\newtheorem{Fact+}[Axiom+]{Fact}
+\newtheorem{Remark+}[Axiom+]{Remark}
+
+% ----------------------------
+% commmand
+% ----------------------------
+% 執筆に便利なコマンド集です. 
+% コマンドを追加する場合は下のスペースへ. 
+
+% 集合の記号 (黒板文字)
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\KK}{\mathbb{K}}
+
+
+% 集合の記号 (太文字)
+\newcommand{\nn}{\mathbf{N}}
+\newcommand{\zz}{\mathbf{Z}}
+\newcommand{\qq}{\mathbf{Q}}
+\newcommand{\rr}{\mathbf{R}}
+\newcommand{\cc}{\mathbf{C}}
+\newcommand{\pp}{\mathbf{P}}
+\newcommand{\kk}{\mathbf{K}}
+
+% 特殊な写像の記号
+\newcommand{\ev}{\mathop{\mathrm{ev}}\nolimits} % 値写像
+\newcommand{\pr}{\mathop{\mathrm{pr}}\nolimits} % 射影
+
+% スクリプト体にするコマンド
+%   例えば　{\mcal C} のように用いる
+\newcommand{\mcal}{\mathcal}
+
+% 花文字にするコマンド 
+%   例えば　{\h C} のように用いる
+\newcommand{\h}{\mathscr}
+
+% ヒルベルト空間などの記号
+\newcommand{\F}{\mcal{F}}
+\newcommand{\X}{\mcal{X}}
+\newcommand{\Y}{\mcal{Y}}
+\newcommand{\Hil}{\mcal{H}}
+\newcommand{\RKHS}{\Hil_{k}}
+\newcommand{\Loss}{\mcal{L}_{D}}
+\newcommand{\MLsp}{(\X, \Y, D, \Hil, \Loss)}
+
+% 偏微分作用素の記号
+\newcommand{\p}{\partial}
+
+% 角カッコの記号 (内積は下にマクロがあります)
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+
+
+
+% 圏の記号など
+\newcommand{\Set}{{\bf Set}}
+\newcommand{\Vect}{{\bf Vect}}
+\newcommand{\FDVect}{{\bf FDVect}}
+\newcommand{\Ring}{{\bf Ring}}
+\newcommand{\Ab}{{\bf Ab}}
+\newcommand{\Mod}{\mathop{\mathrm{Mod}}\nolimits}
+\newcommand{\CGA}{{\bf CGA}}
+\newcommand{\GVect}{{\bf GVect}}
+\newcommand{\Lie}{{\bf Lie}}
+\newcommand{\dLie}{{\bf Liec}}
+
+
+
+% 射の集合など
+\newcommand{\Map}{\mathop{\mathrm{Map}}\nolimits}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\End}{\mathop{\mathrm{End}}\nolimits}
+\newcommand{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
+\newcommand{\Mor}{\mathop{\mathrm{Mor}}\nolimits}
+
+% その他便利なコマンド
+\newcommand{\dip}{\displaystyle} % 本文中で数式モード
+\newcommand{\e}{\varepsilon} % イプシロン
+\newcommand{\dl}{\delta} % デルタ
+\newcommand{\pphi}{\varphi} % ファイ
+\newcommand{\ti}{\tilde} % チルダ
+\newcommand{\pal}{\parallel} % 平行
+\newcommand{\op}{{\rm op}} % 双対を取る記号
+\newcommand{\lcm}{\mathop{\mathrm{lcm}}\nolimits} % 最小公倍数の記号
+\newcommand{\Probsp}{(\Omega, \F, \P)} 
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+
+
+
+
+% ================================
+% コマンドを追加する場合のスペース 
+
+% =================================
+
+
+
+
+
+% ---------------------------
+% new definition macro
+% ---------------------------
+% 便利なマクロ集です
+
+% 内積のマクロ
+%   例えば \inner<\pphi | \psi> のように用いる
+\def\inner<#1>{\langle #1 \rangle}
+
+% ================================
+% マクロを追加する場合のスペース 
+
+%=================================
+
+
+
+
+
+% ----------------------------
+% documenet 
+% ----------------------------
+% 以下, 本文の執筆スペースです. 
+% Your main code must be written between 
+% begin document and end document.
+% ---------------------------
+
+\title{方程2021テンプレート}
+\author{筆者名}
+\date{}
+\begin{document}
+\maketitle
+
+% abstract:記事の内容を要約する環境です（使用の有無は任意）
+\begin{abstract}
+    このドキュメントは
+    2021年度立命館大学数学研究会機関紙
+    『方程』の記事作成テンプレートです. 
+    このテンプレートを書き換えて
+    方程の記事を作成してください. 
+\end{abstract}
+
+
+\section{"章"のコマンド (番号付き) }
+
+\subsection{"節"のコマンド (番号付き) }
+
+ここに本文を書きます. 
+
+
+\subsection{数式環境}
+
+数式環境の使い方を復習しておきます. 
+本文中で数式混じりの文を書くには \$ ２つで挟んで
+\begin{screen}
+    \begin{verbatim}
+        2次方程式
+            $ax^2 + bx + c = 0$
+        の解の公式は\end{verbatim}
+\end{screen}
+のように書きます. すると
+\begin{screen}
+    \begin{quote}
+        2次方程式
+            $ ax^2 + bx + c = 0 $
+        の解の公式は
+    \end{quote}
+\end{screen}
+のように表示されます. 他にも色々できるので, 
+コマンドがわからなくなったら, 例えば
+\verb|TeX 分数|
+などで検索してみてください. 
+\verb|\frac{}{}|
+というコマンドが見つかるはずです. 
+% ソースコード内で行を空けると段落が変わって表示されます
+
+数式を紙面の中央で表示するには
+\verb|align|
+や
+\verb|align*|
+を用います. 
+\verb|align|
+は式番号がつきます: 
+\begin{align}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{align}
+一方
+\verb|align*|
+では
+\begin{align*}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{align*}
+のように式番号がつきません. \LaTeX では基本的に
+\verb|*|つきのコマンドには番号がつかないと
+思っておいて良いでしょう. 
+
+\subsection{定理環境}
+
+定理環境の使い方を説明します. 
+\begin{screen}
+    \begin{verbatim}
+        \begin{Proposition}[定理名]
+            主張. 
+        \end{Proposition}\end{verbatim}
+\end{screen}
+のようにかくと
+\begin{Proposition}[定理名]
+    主張. 
+\end{Proposition}
+のように表示されます. 証明も
+\begin{screen}
+    \begin{verbatim}
+        \begin{proof}
+            証明証明証明証明証明証明証明証明証明
+        \end{proof}\end{verbatim}
+\end{screen}
+のようにかくと
+\begin{proof}
+    証明証明証明証明証明証明証明証明証明
+\end{proof}
+のように表示されます. \textit{Proof}の部分は
+\begin{screen}
+    \begin{verbatim}
+        \begin{proof}[証明]
+            証明証明証明証明証明証明証明証明証明
+        \end{proof}\end{verbatim}
+\end{screen}
+とすれば
+\begin{proof}[証明]
+    証明証明証明証明証明証明証明証明証明
+\end{proof}
+のように変更できます. 
+
+以下, サンプルです. 
+
+\begin{Proposition}[はさみうちの原理(squeeze theorem)]
+    $a$と$b$を実数とする. 任意の自然数$n\geqq1$に対し
+    $\dip|a-b|<\frac{1}{n}$ならば, $a=b$ である. 
+\end{Proposition}
+
+\begin{proof}[{\bf 証明}]
+    $|a-b|>0$ だったとする. 
+    このとき, $\dip\frac{1}{|a-b|}>0$ は実数なので, 
+    アルキメデスの公理より
+    $\dip \frac{1}{\left|a-b\right|}\leqq n$ 
+    をみたす自然数$n>0 \Leftrightarrow n\geqq1$
+    が存在する. この不等式の逆数をとると, 
+    $\dip \frac{1}{n}\leqq |a-b|$
+    となるが, 仮定より$\dip|a-b| < \frac{1}{n}$
+    なので
+    $\dip \frac{1}{n}\leqq|a-b| < \frac{1}{n}$
+    となりムジュン. したがって$|a-b|=0$であり, $a=b$.
+  \end{proof}
+
+\section*{章 (番号なし) }
+
+\subsection*{節 (番号なし) }
+
+本文. 
+
+実際の紙面に反映されないソースコード中でも
+こまめに改行したり, 
+インデントしたりしておくと編集しやすいと思います. 
+例えば, 
+\begin{screen}
+    $(a_n)$ を自然数列で, 任意の $n \geqq 0$ に対し, 
+    $a_n = 0$ か $a_n = 1$ のどちらかであるものとする. 
+    このとき, 実数$b$で, 全ての自然数$m \geqq 0$に対し
+    \begin{eqnarray}
+        \sum_{n=1}^{m}\frac{a_n}{2^n} 
+        \leqq b 
+        \leqq \sum_{n=1}^{m}\frac{a_n}{2^n} + \frac{1}{2^m}
+    \end{eqnarray}
+    をみたすものが存在する. 
+\end{screen}
+という文章は, ソースコード中では
+\begin{screen}
+    \begin{verbatim}
+        $(a_n)$ を自然数列で, 任意の $n \geqq 0$ に対し, 
+        $a_n = 0$ か $a_n = 1$ のどちらかであるものとする. 
+        このとき, 実数$b$で, 全ての自然数$m \geqq 0$に対し
+        \begin{eqnarray}
+            \sum_{n=1}^{m}\frac{a_n}{2^n} 
+            \leqq b 
+            \leqq \sum_{n=1}^{m}\frac{a_n}{2^n} + \frac{1}{2^m}
+        \end{eqnarray}
+        をみたすものが存在する. \end{verbatim}
+\end{screen}
+のように書いています. 
+
+\subsection*{コマンド集のサンプル}
+プリアンブル(ソースコードの上の方に書いてあるコード)
+のコマンドを使った場合のサンプルを書いておきます. 
+\begin{itemize}
+    \item $\NN \QQ \RR \CC \PP \KK$
+    \item $\nn \qq \rr \cc \pp \kk$
+    \item $\ev_x:\Map(X,Y)\to Y$
+    \item $\pr_1:X\times Y \to X$
+    \item $\forall \e >0 \quad \exists \dl > 0 \quad 
+          \forall x \in U_{\dl}(a) \quad |f(x) - f(a)| < \e$
+    \item ${\mcal C} \simeq \Mod(R)$
+    \item ${\h C}^\op \to \Set$
+    \item $\inner<\pphi | \psi>$
+\end{itemize}
+
+
+
+
+
+%===============================================
+% 参考文献スペース
+%===============================================
+\begin{thebibliography}{20} 
+    \bibitem{ひ1} 筆者, 『本の名前』, 出版社, 出版年.
+    \bibitem{AB1} A.\ Author, B.\ Buthor, \textit{Title of The Book}, Publisher, 9999.
+\end{thebibliography}
+
+%===============================================
+
+
+\end{document}

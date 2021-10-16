@@ -1,0 +1,230 @@
+\documentclass[dvipdfmx,12pt,aspectratio=169]{beamer}% dvipdfmxしたい
+\usepackage{bxdpx-beamer}% dvipdfmxなので必要
+\usepackage{pxjahyper}% 日本語で'しおり'したい
+\usepackage{minijs}% min10ヤダ
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\renewcommand{\emph}[1]{{upshape\bfseries #1}}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{ascmac}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{subfigure}
+\usepackage{proof}
+\usepackage{listings}
+\usepackage{otf}
+\usepackage[all]{xy}
+\usepackage{amscd}
+%\usepackage[dvipdfmx]{hyperref}
+
+\usepackage{xcolor}
+\definecolor{darkgreen}{rgb}{0,0.45,0} 
+\definecolor{darkred}{rgb}{0.75,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.6} 
+\hypersetup{
+    colorlinks=true,
+    citecolor=darkgreen,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+}
+
+\usetikzlibrary{positioning}
+
+
+%\usepackage{pxjahyper}
+
+%\renewcommand{\proofname}{\bf 証明} % 「証明」の見出しを日本語にする
+\newcommand{\pr}{\mathop{\mathrm{pr}}\nolimits} % 射影の記号を斜字体にしない
+\newcommand{\id}{\mathop{\mathrm{id}}\nolimits} % 恒等写像
+\newcommand{\Ob}{\mathop{\mathrm{Ob}}\nolimits}
+%\numberwithin{equation}{section} % 式番号を「(3.5)」のように印刷
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Mod}{\mathop{\mathrm{Mod}}\nolimits}
+\newcommand{\End}{\mathop{\mathrm{End}}\nolimits}
+\newcommand{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
+\newcommand{\Mor}{\mathop{\mathrm{Mor}}\nolimits}
+\newcommand{\Map}{\mathop{\mathrm{Map}}\nolimits}
+
+\newcommand{\dip}{\displaystyle} % 本文中で数式モード
+
+
+
+\usetheme{Singapore}
+\usecolortheme{rose}
+\setbeamertemplate{navigaton symbols}{}
+%\usepackage{graphicx,xcolor}
+
+\begin{document}
+    
+\title{2021年度 方程について}
+\author{大柴 寿浩}
+
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}\frametitle{内容}
+    \tableofcontents
+\end{frame}
+
+\section{方程について}
+
+\begin{frame}\frametitle{方程について}
+    \begin{itemize}
+        \item 数学研究会の機関紙, 年一回発行
+        \item 一人一記事, 自分の勉強したことをまとめる
+        \item テーマは自由
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ページ数}
+    \begin{itemize}
+        \item 1回生はページ数自由
+        \item 2回生以上は4ページ以上は書いて欲しい
+    \end{itemize}
+\end{frame}
+
+
+\section{TeX}
+
+\begin{frame}\frametitle{TeX (LaTeX) とは}
+    \begin{itemize}
+        \item 数式等に特化した文書作成ツール (言語)
+        \item 数学系の論文は TeX ファイルでの提出がキホン
+        \item スライドも作れる (コレも TeX)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{TeX を始める}
+    だいたいの場合, 次のどちらか
+    \begin{itemize}
+        \item 自前の環境を作る
+        \item クラウドサービスを使う 
+        (\href{https://cloudlatex.io/ja}{Cloud LaTeX}, 
+        \href{https://ja.overleaf.com/}{Overleaf} 等)
+    \end{itemize}
+    入門書\cite{1}はおすすめ. 
+    
+    \href{https://toshi2019.github.io}{ホームページ}に
+    参考になる文書がまとめてあります
+
+    テンプレート参照
+\end{frame}
+
+\section{作成の流れ}
+
+\begin{frame}\frametitle{作成の流れ}
+    \begin{tikzpicture}
+        \draw (-0.5,0) -- (10.5,0);
+
+        \draw (0,0) -- (0,4);
+        \draw (2,0) -- (2,4);
+        \draw (4,0) -- (4,4);
+        \draw (6,0) -- (6,4);
+        \draw (8,0) -- (8,4);
+        \draw (10,0) -- (10,4);
+        \draw (0,0)node[below]{2021年10月};
+        \draw (2,0)node[below]{11月};
+        \draw (4,0)node[below]{12月};
+        \draw (4,-0.5)node[below]{締切};
+        \draw (6,0)node[below]{2022年1月};
+        \draw (8,0)node[below]{2月};
+        \draw (10,0)node[below]{3月};
+        \draw (10,-0.5)node[below]{完成};
+
+        \fill[cyan!20, rounded corners] (0,2.7)rectangle(4,3.7);
+        \draw[cyan, rounded corners = 5pt] (0,2.7)rectangle(4,3.7);
+        \draw (2,3.2) node {{\color{darkblue} 執筆}};
+
+        \fill[cyan!20, rounded corners] (4,2.7)rectangle(7,3.7);
+        \draw[cyan, rounded corners = 5pt] (4,2.7)rectangle(7,3.7);
+        \draw (5.5,3.2) node {{\color{darkblue} 修正}};
+        
+        \fill[black!0, rounded corners] (3,1.5)rectangle(7,2.5);
+        \draw[rounded corners = 5pt] (3,1.5)rectangle(7,2.5);
+        \draw (5,2) node {査読};
+
+        \fill[magenta!40, rounded corners] (0,0.3)rectangle(3,1.3);
+        \draw[magenta, rounded corners = 5pt] (0,0.3)rectangle(3,1.3);
+        \draw (1.5,0.8) node {{\color{darkred} 割振}};
+
+        \fill[magenta!40, rounded corners] (3,0.3)rectangle(9,1.3);
+        \draw[magenta, rounded corners = 5pt] (3,0.3)rectangle(9,1.3);
+        \draw (6,0.8) node {{\color{darkred} 編集}};
+
+
+        \fill[cyan!20, rounded corners] (-0.5,4.5)rectangle(0,5);
+        \draw[cyan, rounded corners = 5pt] (-0.5,4.5)rectangle(0,5);
+        \draw (0,4.75) node [right]{{\color{darkblue}個人}};
+
+        \fill[black!0, rounded corners] (1.25,4.5)rectangle(1.75,5);
+        \draw[black, rounded corners = 5pt] (1.25,4.5)rectangle(1.75,5);
+        \draw (1.75,4.75) node [right]{査読者};
+   
+        \fill[magenta!40, rounded corners] (3.4,4.5)rectangle(3.9,5);
+        \draw[magenta, rounded corners = 5pt] (3.4,4.5)rectangle(3.9,5);
+        \draw (3.9,4.75) node [right]{{\color{darkred}編集}};   
+    \end{tikzpicture}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{締切}
+    締切は今年いっぱい, つまり
+    \begin{center}
+        \Large{2021年12月31日 23:59 (日本時間)}
+    \end{center}
+    とします
+\end{frame}
+
+
+\begin{frame}\frametitle{提出方法}
+    次のどれかの方法で提出してください
+    \begin{itemize}
+        \item 提出フォーム: \url{https://forms.gle/AjypdfXJjCSXhvhy8}
+        \item メール: \url{houtei2021@gmail.com}
+        \item 数理科 slack のアカウントにDM
+    \end{itemize}
+\end{frame}
+
+\section{編集部}
+
+\begin{frame}\frametitle{方程の編集者を募集します}
+    こんな人に来てもらいたい
+    \begin{itemize}
+        \item PC まわりに詳し (くなりた) い
+        \item \LaTeX いじるの苦じゃない
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{方程の編集者を募集します}
+    編集部に入ると
+    \begin{itemize}
+        \item \LaTeX に対する理解が深まる
+        \item 表紙のデザインを決められる
+        \item (提出が\ldots)
+    \end{itemize}
+\end{frame}
+
+\section{参考文献}
+
+\begin{frame}[allowframebreaks]{参考文献}
+    \begin{thebibliography}{木下99}\beamertemplatetextbibitems
+        \bibitem[美文書]{1} 奥村晴彦, 黒木裕介
+        『［改訂第8版］LaTeX2$\varepsilon$美文書作成入門』
+        技術評論社, 2020.
+    \end{thebibliography}
+\end{frame}
+
+
+\end{document}

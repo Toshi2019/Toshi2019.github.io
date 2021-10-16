@@ -6,8 +6,8 @@
 * テンプレートの配布
 
 ### 配布資料 
-* スライド
-* テンプレート
+* [スライド](2021-houtei-guidance/houtei-guidance.pdf)
+* テンプレート[(pdf)](2021-houtei-template/2021-houtei-template.pdf)[(tex ソース)](2021-houtei-template/2021-houtei-template.tex)
 
 
 ### 提出先
