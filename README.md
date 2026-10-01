@@ -1,3 +1,3 @@
 # Toshi2019.github.io
 
-place to share Liu-note
+place to share notes
