@@ -60,9 +60,9 @@
 
 ## Links
 
-* 北海道大学大学院 理学院 数学専攻: https://www2.sci.hokudai.ac.jp/dept/math
+* 北海道大学大学院 理学院 数学専攻: (https://www2.sci.hokudai.ac.jp/dept/math)
 
-* researchmap: https://researchmap.jp/h.kotobuki0048
+* researchmap: (https://researchmap.jp/h.kotobuki0048)
 
 ### 更新情報
 
