@@ -19,6 +19,7 @@
 
 <!-- * **研究テーマ:** 〇〇に関する研究 -->
 * **口頭発表:**
+  * 2026/10/27 An Application of Truncated Microsupport to Microlocal Morse Theory (New Developments in Microlocal Analysis and Asymptotic Analysis)
   * 2026/08/19 打切り超局所台による相対版超局所Morse理論の精密化 (2026年度函数方程式論サマーセミナー)
   * 2026/03/05 Microlocal Morse theory and truncated microsupport (Recent topics in algebraic analysis)
 
@@ -27,7 +28,7 @@
 
 ### Other Areas
 
-* **ポスター発表:** 
+* **ポスター発表:**
   * 2026/9/27 大学初年次の数学の相談記録からみる学習のつまずきと支援ニーズの特徴（日本教育工学会 2026年秋季全国大会）
     * 共著者：天池 庸介, 唐川 真歩, 山本 堅一, 杉浦 真由美
 
